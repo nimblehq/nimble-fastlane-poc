@@ -7,10 +7,11 @@ let package = Package(
     products: [
         .library(
             name: "NimbleFastlane",
-            targets: ["NimbleFastlane"]),
+            targets: ["NimbleFastlane"]
+        )
     ],
     dependencies: [
-        .package(url: "https://github.com/fastlane/fastlane", .branch("master"))
+        .package(url: "https://github.com/fastlane/fastlane", branch: "master")
     ],
     targets: [
         .target(
@@ -18,12 +19,12 @@ let package = Package(
             dependencies: [
                 .product(name: "Fastlane", package: "fastlane")
             ],
-            path: "Sources"
-            ),
+            path: "Sources/NimbleFastlane"
+        ),
         .testTarget(
             name: "NimbleFastlaneTests",
             dependencies: ["NimbleFastlane"],
-            path: "Tests"
-            ),
+            path: "Tests/NimbleFastlaneTests"
+        )
     ]
 )

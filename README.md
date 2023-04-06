@@ -21,7 +21,7 @@ swift package init --type executable --name Fastlane
 Add the [nimble-fastlane][nimble-fastlane] dependency to your `Package.swift`.
 
 ```swift
-.package(url: "https://github.com/nimblehq/nimble-fastlane", .branch("main"))
+.package(url: "https://github.com/nimblehq/nimble-fastlane", branch: "main")
 ```
 
 Here is an example:
@@ -40,7 +40,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/nimblehq/nimble-fastlane", .branch("main"))
+        .package(url: "https://github.com/nimblehq/nimble-fastlane", branch: "main")
     ],
     targets: [
         .executableTarget(
