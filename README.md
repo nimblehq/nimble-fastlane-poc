@@ -10,18 +10,19 @@ This library allows developers to easily integrate all shared lanes (e.g., build
 
 ### Step 1
 
-To use this library (and [fastlane][fastlane]) in your iOS project, you need to create an executable Swift Package project with:
+To use this library (and [fastlane][fastlane]) in your iOS project, you need to create an executable Swift Package project with (you might need to create a folder fastlane):
 
 ```bash
-swift package init --type executable --name Fastlane
+mkdir fastlane && "$_"
+swift package init --type executable --name FastlaneRunner
 ```
 
 ### Step 2
 
-Add the [nimble-fastlane][nimble-fastlane] dependency to your `Package.swift`.
+Add the [nimble-fastlane][nimble-fastlane] dependency to your `fastlane/Package.swift`.
 
 ```swift
-.package(url: "https://github.com/nimblehq/nimble-fastlane", branch: "main")
+.package(url: "https://github.com/nimblehq/nimble-fastlane", from: "1.0.0")
 ```
 
 Here is an example:
@@ -40,13 +41,13 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/nimblehq/nimble-fastlane", branch: "main")
+        .package(url: "https://github.com/nimblehq/nimble-fastlane", from: "1.0.0")
     ],
     targets: [
         .executableTarget(
             name: "FastlaneRunner",
             dependencies: [
-                .byNameItem(name: "NimbleFastlane", condition: nil)
+                .product(name: "NimbleFastlane", package: "nimble-fastlane")
             ],
             path: "FastlaneRunner"
         )
@@ -56,11 +57,11 @@ let package = Package(
 
 ### Step 3
 
-Add an entry point (`@main`) or a `main.swift` file (mandatory for executable Swift Packages), configure `Constants`, and start the `fastlane runloop`. For example:
+Edit the `FastlaneRunner.swift` to import `Fastlane` and `NimbleFastlane`, then configure `Constants`, and start the `fastlane runloop`. For example:
 
 ```swift
 import Fastlane
-import FastlaneTemplates
+import NimbleFastlane
 
 @main
 public enum FastlaneRunner {

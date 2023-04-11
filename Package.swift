@@ -11,20 +11,18 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/fastlane/fastlane", branch: "master")
+        .package(url: "https://github.com/fastlane/fastlane", from: "2.212.0")
     ],
     targets: [
         .target(
             name: "NimbleFastlane",
             dependencies: [
                 .product(name: "Fastlane", package: "fastlane")
-            ],
-            path: "Sources/NimbleFastlane"
+            ]
         ),
         .testTarget(
             name: "NimbleFastlaneTests",
-            dependencies: ["NimbleFastlane"],
-            path: "Tests/NimbleFastlaneTests"
+            dependencies: ["NimbleFastlane"]
         )
     ]
 )
