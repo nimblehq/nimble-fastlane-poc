@@ -8,7 +8,7 @@ This library allows developers to easily integrate all shared lanes (e.g., build
 
 ## Usage
 
-### Step 1
+### Step 1: Create an executable Swift Package project
 
 To use this library (and [fastlane][fastlane]) in your iOS project, you need to create an executable Swift Package project with (you might need to create a folder fastlane):
 
@@ -17,7 +17,7 @@ mkdir fastlane && "$_"
 swift package init --type executable --name FastlaneRunner
 ```
 
-### Step 2
+### Step 2: Add the dependency
 
 Add the [nimble-fastlane][nimble-fastlane] dependency to your `fastlane/Package.swift`.
 
@@ -55,7 +55,7 @@ let package = Package(
 )
 ```
 
-### Step 3
+### Step 3: Edit the `FastlaneRunner.swift`
 
 Edit the `FastlaneRunner.swift` to import `Fastlane` and `NimbleFastlane`, then configure `Constants`, and start the `fastlane runloop`. For example:
 
@@ -72,20 +72,36 @@ public enum FastlaneRunner {
 }
 ```
 
-### Step 4
+### Step 4: Release and use fastlane
 
-Build release the executable FastlaneRunner project:
+- Since the `FastlaneRunner` package was created and placed in the `fastlane` directory. You must be in the `fastlane` directory to release the executable project:
+
+    ```bash
+    cd fastlane
+    ```
+
+- Build release the executable FastlaneRunner project:
+
+    ```bash
+    swift build -c release
+    ```
+
+- Copy the executable to the bin directory:
+
+    ```bash
+    cp .build/release/fastlaneRunner ./bin/fastlaneRunner
+    ```
+
+- Now, you can start using your custom lane, for example:
+
+    ```bash
+    ./bin/fastlaneRunner lane buildAndTest
+    ```
+
+Note that, assume we're still in the `fastlane` directory. If we like to run from the project root directory, it would be:
 
 ```bash
-swift build -c release
-```
-
-Copy to the `bin` project and use it:
-
-```bash
-cp .build/release/fastlaneRunner ./bin/fastlaneRunner
-
-./bin/fastlaneRunner lane buildAndTest
+./fastlane/bin/fastlaneRunner lane buildAndTest
 ```
 
 ## License
