@@ -37,7 +37,7 @@ enum Distribution {
 
     static func uploadToFirebase(
         environment: Constant.Environment,
-        groups: String = Constant.firebaseTesterGroups,
+        groups: String = constant.firebaseTesterGroups,
         releaseNotes: String
     ) {
         let ipaPath = makeIPAPath(environment: environment)
@@ -67,7 +67,7 @@ enum Distribution {
         environment: Constant.Environment = .production,
         changeLog: String = "",
         betaAppReviewInfo: [String: Any] = [:],
-        groups: [String] = Constant.testFlightTesterGroups
+        groups: [String] = constant.testFlightTesterGroups
     ) {
         let ipaPath = makeIPAPath(environment: environment)
         testflight(
@@ -82,6 +82,6 @@ enum Distribution {
     }
 
     private static func makeIPAPath(environment: Constant.Environment) -> String {
-        "\(Constant.outputPath)/\(environment.productName).ipa"
+        "\(constant.outputPath)/\(environment.productName).ipa"
     }
 }

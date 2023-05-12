@@ -19,7 +19,7 @@ enum Symbol {
             dsymPath: environment.dsymPath,
             gspPath: .userDefined(environment.gspPath),
             appId: .userDefined(environment.firebaseAppId),
-            binaryPath: .userDefined(Constant.uploadSymbolsBinaryPath),
+            binaryPath: .userDefined(constant.uploadSymbolsBinaryPath),
             debug: true // We sometimes has issues with dSYM files, so I enabled this flag.
         )
     }

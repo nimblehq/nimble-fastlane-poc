@@ -23,7 +23,7 @@ enum Build {
     // MARK: Save the build context
 
     static func saveBuildContextToCI() {
-        switch Constant.platform {
+        switch constant.platform {
         case .gitHubActions:
             let ipaPath = laneContext()["IPA_OUTPUT_PATH"]
             let dsymPath = laneContext()["DSYM_OUTPUT_PATH"]
@@ -34,7 +34,7 @@ enum Build {
             sh(command: "echo BUILD_NUMBER=\(buildNumber ?? "") >> $GITHUB_ENV")
             sh(command: "echo VERSION_NUMBER=\(Version.versionNumber) >> $GITHUB_ENV")
         case .bitrise, .codeMagic:
-            sh(command: "envman add --key BUILD_PATH --value '\(Constant.outputPath)'")
+            sh(command: "envman add --key BUILD_PATH --value '\(constant.outputPath)'")
         default: break
         }
     }
@@ -48,7 +48,7 @@ enum Build {
         buildApp(
             scheme: .userDefined(environment.scheme),
             clean: .userDefined(true),
-            outputDirectory: Constant.outputPath,
+            outputDirectory: constant.outputPath,
             outputName: .userDefined(environment.productName),
             includeSymbols: .userDefined(true),
             exportMethod: .userDefined(type.value),
@@ -57,8 +57,8 @@ enum Build {
                     environment.bundleId: "match \(type.method) \(environment.bundleId)"
                 ]
             ]),
-            buildPath: .userDefined(Constant.buildPath),
-            derivedDataPath: .userDefined(Constant.derivedDataPath),
+            buildPath: .userDefined(constant.buildPath),
+            derivedDataPath: .userDefined(constant.derivedDataPath),
             xcodebuildFormatter: "xcpretty" // Default `xcbeautify` will never work
         )
     }

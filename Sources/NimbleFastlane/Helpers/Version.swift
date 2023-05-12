@@ -15,28 +15,28 @@ enum Version {
     static var versionNumber: String {
         get {
             getVersionNumber(
-                xcodeproj: .userDefined(Constant.projectPath),
-                target: .userDefined(Constant.projectName)
+                xcodeproj: .userDefined(constant.projectPath),
+                target: .userDefined(constant.projectName)
             )
         }
 
         set {
             incrementVersionNumber(
                 versionNumber: .userDefined(newValue),
-                xcodeproj: .userDefined(Constant.projectPath)
+                xcodeproj: .userDefined(constant.projectPath)
             )
         }
     }
 
     static var buildNumber: String {
         get {
-            getBuildNumber(xcodeproj: .userDefined(Constant.projectPath))
+            getBuildNumber(xcodeproj: .userDefined(constant.projectPath))
         }
 
         set {
             incrementBuildNumber(
                 buildNumber: .userDefined(newValue),
-                xcodeproj: .userDefined(Constant.projectPath)
+                xcodeproj: .userDefined(constant.projectPath)
             )
         }
     }

@@ -12,7 +12,7 @@ enum Keychain {
 
     static func create() {
         createKeychain(
-            name: .userDefined(Constant.keychainName),
+            name: .userDefined(constant.keychainName),
             password: Secret.keychainPassword,
             defaultKeychain: .userDefined(true),
             unlock: .userDefined(true),

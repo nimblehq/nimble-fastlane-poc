@@ -20,7 +20,7 @@ enum Test {
             devices: .userDefined(devices),
             onlyTesting: targets,
             codeCoverage: .userDefined(true),
-            outputDirectory: Constant.testOutputDirectoryPath,
+            outputDirectory: constant.testOutputDirectoryPath,
             xcodebuildFormatter: "xcpretty",
             resultBundle: .userDefined(true),
             failBuild: .userDefined(false)
@@ -31,7 +31,7 @@ enum Test {
         setInfoPlistValue(
             key: "ITSAppUsesNonExemptEncryption",
             value: "false",
-            path: "\(Constant.projectName)/Configurations/Plists/Info.plist"
+            path: "\(constant.projectName)/Configurations/Plists/Info.plist"
         )
     }
 }
