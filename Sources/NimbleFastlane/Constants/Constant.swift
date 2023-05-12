@@ -8,37 +8,39 @@
 
 import Foundation
 
-enum Constant {
+public var constant = Constant()
+
+public class Constant {
 
     // MARK: - App Store
 
-    static let testFlightTesterGroups = [" ", " "]
+    var testFlightTesterGroups = ["<#group1#>", "<#group2#>"]
 
     // MARK: - Firebase
 
-    static let stagingFirebaseAppId = " "
-    static let productionFirebaseAppId = " "
-    static let firebaseTesterGroups = " ,  "
+    var stagingFirebaseAppId = "<#stagingFirebaseAppId#>"
+    var productionFirebaseAppId = "<#productionFirebaseAppId#>"
+    var firebaseTesterGroups = "<#group1#>, <#group2#>"
 
     // MARK: - Match
 
-    static let userName = " "
-    static let teamId = " "
-    static let keychainName = "github_action_keychain"
-    static let matchURL = "git@github.com:{organization}/{repo}.git"
+    var userName = "<#userName#>"
+    var teamId = "<#teamId#>"
+    var keychainName = "github_action_keychain"
+    var matchURL = "git@github.com:{organization}/{repo}.git"
 
     // MARK: - Path
 
-    static let outputPath = "./Output"
-    static let buildPath = "\(outputPath)/Build"
-    static let derivedDataPath = "\(outputPath)/DerivedData"
-    static let projectPath: String = "./\(projectName).xcodeproj"
-    static let testOutputDirectoryPath = "./fastlane/test_output"
-    static let infoPlistPath = "\(projectName)/Configurations/Plists/Info.plist"
+    var outputPath = "./Output"
+    var testOutputDirectoryPath = "./fastlane/test_output"
+    var buildPath: String { "\(outputPath)/Build" }
+    var derivedDataPath: String { "\(outputPath)/DerivedData" }
+    var projectPath: String { "./\(projectName).xcodeproj" }
+    var infoPlistPath: String { "\(projectName)/Configurations/Plists/Info.plist" }
 
     // MARK: Platform
 
-    static var platform: PlatformType {
+    var platform: PlatformType {
         if EnvironmentParser.bool(key: "CM_BRANCH") {
             return .codeMagic
         } else if EnvironmentParser.bool(key: "BITRISE_IO") {
@@ -51,27 +53,27 @@ enum Constant {
 
     // MARK: - Project
 
-    static let stagingBundleId = "{BUNDLE_ID_STAGING}"
-    static let productionBundleId = "{BUNDLE_ID_PRODUCTION}"
-    static let projectName = "ABC"
+    var stagingBundleId = "{BUNDLE_ID_STAGING}"
+    var productionBundleId = "{BUNDLE_ID_PRODUCTION}"
+    var projectName = "{PROJECT_NAME}"
 
     // MARK: - Symbol
 
-    static let uploadSymbolsBinaryPath: String = "./Pods/FirebaseCrashlytics/upload-symbols"
-    static let dSYMSuffix: String = ".dSYM.zip"
+    var uploadSymbolsBinaryPath: String = "./Pods/FirebaseCrashlytics/upload-symbols"
+    var dSYMSuffix: String = ".dSYM.zip"
 
     // MARK: - Build and Version
 
-    static let manualVersion: String = "1"
+    var manualVersion: String = ""
 
     // MARK: - Device
 
-    static let devices = ["iPhone 12 Pro Max"]
+    var devices = ["iPhone 12 Pro Max"]
 
     // MARK: - Test
 
-    static let testTarget: String = "\(projectName)Tests"
-    static let kifUITestTarget: String = "\(projectName)KIFUITests"
+    var testTarget: String { "\(projectName)Tests" }
+    var kifUITestTarget: String { "\(projectName)KIFUITests" }
 }
 
 extension Constant {
@@ -81,27 +83,27 @@ extension Constant {
         case staging = "Staging"
         case production = ""
 
-        var productName: String { "\(Constant.projectName) \(rawValue)".trimmed }
+        var productName: String { "\(constant.projectName) \(rawValue)".trimmed }
 
-        var scheme: String { "\(Constant.projectName) \(rawValue)".trimmed }
+        var scheme: String { "\(constant.projectName) \(rawValue)".trimmed }
 
         var bundleId: String {
             switch self {
-            case .staging: return Constant.stagingBundleId
-            case .production: return Constant.productionBundleId
+            case .staging: return constant.stagingBundleId
+            case .production: return constant.productionBundleId
             }
         }
 
         var firebaseAppId: String {
             switch self {
-            case .staging: return Constant.stagingFirebaseAppId
-            case .production: return Constant.productionFirebaseAppId
+            case .staging: return constant.stagingFirebaseAppId
+            case .production: return constant.productionFirebaseAppId
             }
         }
 
         var gspPath: String {
             let infoName = "GoogleService-Info.plist"
-            let googleServiceFolder = "./\(Constant.projectName)/Configurations/Plists/GoogleService"
+            let googleServiceFolder = "./\(constant.projectName)/Configurations/Plists/GoogleService"
             switch self {
             case .staging: return "\(googleServiceFolder)/Staging/\(infoName)"
             case .production: return "\(googleServiceFolder)/Production/\(infoName)"
@@ -109,8 +111,8 @@ extension Constant {
         }
 
         var dsymPath: String {
-            let outputDirectoryURL = URL(fileURLWithPath: Constant.outputPath)
-            return outputDirectoryURL.appendingPathComponent(productName + ".app" + Constant.dSYMSuffix).relativePath
+            let outputDirectoryURL = URL(fileURLWithPath: constant.outputPath)
+            return outputDirectoryURL.appendingPathComponent(productName + ".app" + constant.dSYMSuffix).relativePath
         }
     }
 

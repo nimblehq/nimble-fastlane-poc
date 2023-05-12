@@ -7,7 +7,7 @@
 
 import Fastlane
 
-class Fastfile: LaneFile {
+open class Fastfile: LaneFile {
 
     // MARK: - Code signing
 
@@ -15,7 +15,7 @@ class Fastfile: LaneFile {
         // desc("Sync the Development match signing for the Staging build")
         Match.syncCodeSigning(
             type: .development,
-            appIdentifier: [Constant.stagingBundleId]
+            appIdentifier: [constant.stagingBundleId]
         )
     }
 
@@ -23,7 +23,7 @@ class Fastfile: LaneFile {
         // desc("Sync the Ad Hoc match signing for the Staging build")
         Match.syncCodeSigning(
             type: .adHoc,
-            appIdentifier: [Constant.stagingBundleId]
+            appIdentifier: [constant.stagingBundleId]
         )
     }
 
@@ -31,7 +31,7 @@ class Fastfile: LaneFile {
         // desc("Sync the Ad Hoc match signing for the Production build")
         Match.syncCodeSigning(
             type: .adHoc,
-            appIdentifier: [Constant.productionBundleId]
+            appIdentifier: [constant.productionBundleId]
         )
     }
 
@@ -39,7 +39,7 @@ class Fastfile: LaneFile {
         // desc("Sync the App Store match signing for the Production build")
         Match.syncCodeSigning(
             type: .appStore,
-            appIdentifier: [Constant.productionBundleId]
+            appIdentifier: [constant.productionBundleId]
         )
     }
 
@@ -140,10 +140,10 @@ class Fastfile: LaneFile {
         Test.buildAndTest(
             environment: .staging,
             targets: [
-                Constant.testTarget,
-                Constant.kifUITestTarget
+                constant.testTarget,
+                constant.kifUITestTarget
             ],
-            devices: Constant.devices
+            devices: constant.devices
         )
     }
 
@@ -151,12 +151,12 @@ class Fastfile: LaneFile {
         // desc("Update Provision Profile")
         syncAppStoreCodeSigningLane()
         updateCodeSigningSettings(
-            path: Constant.projectPath,
+            path: constant.projectPath,
             useAutomaticSigning: .userDefined(false),
-            teamId: .userDefined(EnvironmentParser.string(key: "sigh_\(Constant.productionBundleId)_appstore_team-id")),
+            teamId: .userDefined(EnvironmentParser.string(key: "sigh_\(constant.productionBundleId)_appstore_team-id")),
             codeSignIdentity: .userDefined("iPhone Distribution"),
             profileName: .userDefined(EnvironmentParser.string(
-                key: "sigh_\(Constant.productionBundleId)_appstore_profile-name"
+                key: "sigh_\(constant.productionBundleId)_appstore_profile-name"
             ))
         )
     }
@@ -175,7 +175,7 @@ class Fastfile: LaneFile {
         registerDevice(
             name: deviceName,
             udid: deviceUDID,
-            teamId: .userDefined(Constant.teamId)
+            teamId: .userDefined(constant.teamId)
         )
 
         Match.syncCodeSigning(type: .development, appIdentifier: [], isForce: true)
@@ -186,16 +186,16 @@ class Fastfile: LaneFile {
 
     public func cleanUpOutputLane() {
         // desc("Clean up Output")
-        clearDerivedData(derivedDataPath: Constant.outputPath)
+        clearDerivedData(derivedDataPath: constant.outputPath)
     }
 
     // MARK: - Private Helper
 
     private func setAppVersion() {
         // desc("Check if any specific version number in build environment")
-        guard !Constant.manualVersion.isEmpty else { return }
+        guard !constant.manualVersion.isEmpty else { return }
         incrementVersionNumber(
-            versionNumber: .userDefined(Constant.manualVersion)
+            versionNumber: .userDefined(constant.manualVersion)
         )
     }
 
@@ -203,14 +203,14 @@ class Fastfile: LaneFile {
         // desc("Set build number with number of commits")
         incrementBuildNumber(
             buildNumber: .userDefined(String(buildNumber)),
-            xcodeproj: .userDefined(Constant.projectPath)
+            xcodeproj: .userDefined(constant.projectPath)
         )
     }
 
     private func bumpAppstoreBuild() {
         // desc("Set build number with App Store latest build")
         let theLatestBuildNumber = latestTestflightBuildNumber(
-            appIdentifier: Constant.productionBundleId
+            appIdentifier: constant.productionBundleId
         ) + 1
         incrementBuildNumber(
             buildNumber: .userDefined("\(theLatestBuildNumber)")

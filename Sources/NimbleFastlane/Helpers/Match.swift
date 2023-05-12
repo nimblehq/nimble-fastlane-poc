@@ -17,10 +17,10 @@ enum Match {
                 type: type.value,
                 readonly: .userDefined(!isForce),
                 appIdentifier: appIdentifier,
-                username: .userDefined(Constant.userName),
-                teamId: .userDefined(Constant.teamId),
-                gitUrl: Constant.matchURL,
-                keychainName: Constant.keychainName,
+                username: .userDefined(constant.userName),
+                teamId: .userDefined(constant.teamId),
+                gitUrl: constant.matchURL,
+                keychainName: constant.keychainName,
                 keychainPassword: .userDefined(Secret.keychainPassword),
                 force: .userDefined(isForce)
             )
@@ -29,9 +29,9 @@ enum Match {
                 type: type.value,
                 readonly: .userDefined(!isForce),
                 appIdentifier: appIdentifier,
-                username: .userDefined(Constant.userName),
-                teamId: .userDefined(Constant.teamId),
-                gitUrl: Constant.matchURL,
+                username: .userDefined(constant.userName),
+                teamId: .userDefined(constant.teamId),
+                gitUrl: constant.matchURL,
                 force: .userDefined(isForce)
             )
         }
