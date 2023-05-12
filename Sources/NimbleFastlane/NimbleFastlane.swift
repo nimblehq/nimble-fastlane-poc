@@ -1,11 +1,10 @@
 import Fastlane
 
-@main
-public struct NimbleFastlane {
+public struct NimbleFastlaneRunner {
 
-    public private(set) var text = "Hello, World!"
-
-    public static func main() {
+    public static func start() {
         Main().run(with: Fastfile())
     }
 }
+
+public var constant = Constant()

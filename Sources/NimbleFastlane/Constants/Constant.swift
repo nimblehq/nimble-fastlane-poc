@@ -8,8 +8,6 @@
 
 import Foundation
 
-public var constant = Constant()
-
 public class Constant {
 
     // MARK: - App Store
