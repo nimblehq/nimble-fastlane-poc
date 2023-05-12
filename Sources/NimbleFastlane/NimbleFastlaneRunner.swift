@@ -6,5 +6,3 @@ public struct NimbleFastlaneRunner {
         Main().run(with: Fastfile())
     }
 }
-
-public var constant = Constant()

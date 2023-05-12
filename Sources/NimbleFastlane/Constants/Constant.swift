@@ -8,29 +8,31 @@
 
 import Foundation
 
+public var constant = Constant()
+
 public class Constant {
 
     // MARK: - App Store
 
-    var testFlightTesterGroups = ["<#group1#>", "<#group2#>"]
+    public var testFlightTesterGroups = ["<#group1#>", "<#group2#>"]
 
     // MARK: - Firebase
 
-    var stagingFirebaseAppId = "<#stagingFirebaseAppId#>"
-    var productionFirebaseAppId = "<#productionFirebaseAppId#>"
-    var firebaseTesterGroups = "<#group1#>, <#group2#>"
+    public var stagingFirebaseAppId = "<#stagingFirebaseAppId#>"
+    public var productionFirebaseAppId = "<#productionFirebaseAppId#>"
+    public var firebaseTesterGroups = "<#group1#>, <#group2#>"
 
     // MARK: - Match
 
-    var userName = "<#userName#>"
-    var teamId = "<#teamId#>"
-    var keychainName = "github_action_keychain"
-    var matchURL = "git@github.com:{organization}/{repo}.git"
+    public var userName = "<#userName#>"
+    public var teamId = "<#teamId#>"
+    public var keychainName = "github_action_keychain"
+    public var matchURL = "git@github.com:{organization}/{repo}.git"
 
     // MARK: - Path
 
-    var outputPath = "./Output"
-    var testOutputDirectoryPath = "./fastlane/test_output"
+    public var outputPath = "./Output"
+    public var testOutputDirectoryPath = "./fastlane/test_output"
     var buildPath: String { "\(outputPath)/Build" }
     var derivedDataPath: String { "\(outputPath)/DerivedData" }
     var projectPath: String { "./\(projectName).xcodeproj" }
@@ -62,11 +64,11 @@ public class Constant {
 
     // MARK: - Build and Version
 
-    var manualVersion: String = ""
+    public var manualVersion: String = ""
 
     // MARK: - Device
 
-    var devices = ["iPhone 12 Pro Max"]
+    public var devices = ["iPhone 12 Pro Max"]
 
     // MARK: - Test
 
