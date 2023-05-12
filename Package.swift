@@ -4,25 +4,19 @@ import PackageDescription
 
 let package = Package(
     name: "NimbleFastlane",
-    products: [
-        .library(
-            name: "NimbleFastlane",
-            targets: ["NimbleFastlane"]
-        )
-    ],
     dependencies: [
-        .package(url: "https://github.com/fastlane/fastlane", from: "2.212.0")
+        .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "custom-plugin"),
     ],
     targets: [
-        .target(
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .executableTarget(
             name: "NimbleFastlane",
             dependencies: [
-                .product(name: "Fastlane", package: "fastlane")
-            ]
-        ),
+                .product(name: "Fastlane", package: "fastlane-swift-group")
+            ]),
         .testTarget(
             name: "NimbleFastlaneTests",
-            dependencies: ["NimbleFastlane"]
-        )
+            dependencies: ["NimbleFastlane"]),
     ]
 )
