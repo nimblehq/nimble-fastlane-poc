@@ -8,31 +8,6 @@
 
 import Fastlane
 
-open class FirebaseDistributor {
-
-    public init() {}
-
-    open func firebaseAppDistribution(
-        ipaPath: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        googleserviceInfoPlistPath: String = "GoogleService-Info.plist",
-        apkPath: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        androidArtifactPath: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        androidArtifactType: String = "APK",
-        app: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        firebaseCliPath: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        groups: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        groupsFile: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        testers: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        testersFile: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        releaseNotes: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        releaseNotesFile: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        firebaseCliToken: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        debug: OptionalConfigValue<Bool> = .fastlaneDefault(false),
-        serviceCredentialsFile: OptionalConfigValue<String?> = .fastlaneDefault(nil),
-        uploadTimeout: Int = 300
-    ) {}
-}
-
 enum Distribution {
 
     static func uploadToFirebase(
