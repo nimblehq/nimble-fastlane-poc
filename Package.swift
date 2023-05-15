@@ -11,7 +11,7 @@ let package = Package(
             )
         ],
     dependencies: [
-        .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "custom-plugin"),
+        .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "firebase-distribution-plugin"),
     ],
     targets: [
         .target(

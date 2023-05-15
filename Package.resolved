@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/blyscuit/fastlane-swift-group",
       "state" : {
-        "branch" : "custom-plugin",
-        "revision" : "22fa83637c1d3933c5c0b1af41d50055cdf4043b"
+        "branch" : "firebase-distribution-plugin",
+        "revision" : "28c901d460f5c723c1ce5569a163c30fe1a494b5"
       }
     },
     {
