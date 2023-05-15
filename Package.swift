@@ -5,19 +5,19 @@ import PackageDescription
 let package = Package(
     name: "NimbleFastlane",
     products: [
-        .library(
-            name: "NimbleFastlane",
-            targets: ["NimbleFastlane"]
-        )
-    ],
+            .library(
+                name: "NimbleFastlane",
+                targets: ["NimbleFastlane"]
+            )
+        ],
     dependencies: [
-        .package(url: "https://github.com/fastlane/fastlane", from: "2.212.0")
+        .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "firebase-distribution-plugin"),
     ],
     targets: [
         .target(
             name: "NimbleFastlane",
             dependencies: [
-                .product(name: "Fastlane", package: "fastlane")
+                .product(name: "Fastlane", package: "fastlane-swift-group")
             ]
         ),
         .testTarget(
