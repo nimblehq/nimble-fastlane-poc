@@ -1,9 +1,11 @@
 @testable import NimbleFastlane
 import XCTest
 
-final class NimbleFastlaneTests: XCTestCase {
+final class ConfigurationTest: XCTestCase {
 
-    func testExample() throws {
-        XCTAssertEqual(NimbleFastlane().text, "Hello, World!")
+    func testSetUp() throws {
+        Configuration.setUp(target: "target", xcodeprojPath: "xcodeprojPath")
+        XCTAssertEqual(Configuration.shared.target, "target")
+        XCTAssertEqual(Configuration.shared.xcodeprojPath, "xcodeprojPath")
     }
 }

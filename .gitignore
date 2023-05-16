@@ -37,3 +37,11 @@
 
 # Swift Package
 .swiftpm
+.DS_Store
+.build
+Packages
+xcuserdata
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
