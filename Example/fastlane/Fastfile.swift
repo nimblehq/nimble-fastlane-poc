@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Algorithms
 
 class Fastfile: LaneFile {
 	func customLane() {

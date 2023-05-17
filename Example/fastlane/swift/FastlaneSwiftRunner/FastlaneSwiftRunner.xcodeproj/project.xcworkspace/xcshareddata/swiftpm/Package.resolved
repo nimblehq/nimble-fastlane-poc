@@ -1,6 +1,24 @@
 {
   "pins" : [
     {
+      "identity" : "fastlane",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fastlane/fastlane",
+      "state" : {
+        "revision" : "b8c1a2299521b343b85c37455c7aa7ed7bc08c45",
+        "version" : "2.212.2"
+      }
+    },
+    {
+      "identity" : "nimble-fastlane",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nimblehq/nimble-fastlane",
+      "state" : {
+        "branch" : "chore/init-example",
+        "revision" : "8fb9b40c87cc7c6b62345421f8cf9ab5b017e1d2"
+      }
+    },
+    {
       "identity" : "swift-algorithms",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-algorithms.git",
@@ -16,6 +34,15 @@
       "state" : {
         "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
         "version" : "1.0.2"
+      }
+    },
+    {
+      "identity" : "swiftshell",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kareman/SwiftShell",
+      "state" : {
+        "revision" : "99680b2efc7c7dbcace1da0b3979d266f02e213c",
+        "version" : "5.1.0"
       }
     }
   ],

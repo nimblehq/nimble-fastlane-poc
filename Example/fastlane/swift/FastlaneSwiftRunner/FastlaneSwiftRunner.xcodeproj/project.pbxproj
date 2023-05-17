@@ -12,6 +12,7 @@
 		1257253924B7992C00E04FA3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257253824B7992B00E04FA3 /* main.swift */; };
 		1267C3F42773A43E004DE48A /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267C3F32773A43E004DE48A /* Atomic.swift */; };
 		12D2EB8D2620D83C00844013 /* OptionalConfigValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2EB8C2620D83B00844013 /* OptionalConfigValue.swift */; };
+		8B68AAB62A146975001C718B /* NimbleFastlane in Frameworks */ = {isa = PBXBuildFile; productRef = 8B68AAB52A146975001C718B /* NimbleFastlane */; };
 		8BD0479F2A1468BF008F334C /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 8BD0479E2A1468BF008F334C /* Algorithms */; };
 		B302067B1F5E3E9000DE6EBD /* SnapshotfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30206741F5E3E9000DE6EBD /* SnapshotfileProtocol.swift */; };
 		B302067C1F5E3E9000DE6EBD /* GymfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30206751F5E3E9000DE6EBD /* GymfileProtocol.swift */; };
@@ -102,6 +103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD0479F2A1468BF008F334C /* Algorithms in Frameworks */,
+				8B68AAB62A146975001C718B /* NimbleFastlane in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +211,7 @@
 			name = FastlaneRunner;
 			packageProductDependencies = (
 				8BD0479E2A1468BF008F334C /* Algorithms */,
+				8B68AAB52A146975001C718B /* NimbleFastlane */,
 			);
 			productName = FastlaneSwiftRunner;
 			productReference = D556D6A91F6A08F5003108E3 /* FastlaneRunner */;
@@ -242,6 +245,7 @@
 			mainGroup = B33BAF4E1F51F8D90001A751;
 			packageReferences = (
 				8BD0479D2A1468BF008F334C /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				8B68AAB42A146975001C718B /* XCRemoteSwiftPackageReference "nimble-fastlane" */,
 			);
 			productRefGroup = B33BAF4E1F51F8D90001A751;
 			projectDirPath = "";
@@ -345,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -398,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -462,6 +466,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8B68AAB42A146975001C718B /* XCRemoteSwiftPackageReference "nimble-fastlane" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nimblehq/nimble-fastlane";
+			requirement = {
+				branch = "chore/init-example";
+				kind = branch;
+			};
+		};
 		8BD0479D2A1468BF008F334C /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-algorithms.git";
@@ -473,6 +485,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8B68AAB52A146975001C718B /* NimbleFastlane */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B68AAB42A146975001C718B /* XCRemoteSwiftPackageReference "nimble-fastlane" */;
+			productName = NimbleFastlane;
+		};
 		8BD0479E2A1468BF008F334C /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8BD0479D2A1468BF008F334C /* XCRemoteSwiftPackageReference "swift-algorithms" */;
