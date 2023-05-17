@@ -12,19 +12,20 @@ import NimbleFastlane
 
 // MARK: - Fastfile
 
-class Fastfile: LaneFile {
+class Fastfile: LaneFile, NewSharedFastfile {
 
     var firebase: NimbleFastlane.Firebase! = FirebaseImplementation()
 
+    override init() {
+        super.init()
+        Configuration.setUp(target: "Example", xcodeprojPath: "./Example.xcodeproj")
+    }
+
     func customLane() {
         desc("Description of what the lane does")
-        // add actions here: https://docs.fastlane.tools/actions
+        getVersionNumberLane()
     }
 }
-
-// MARK: NewSharedFastfile
-
-extension Fastfile: NewSharedFastfile {}
 
 // MARK: - FirebaseImplementation
 
