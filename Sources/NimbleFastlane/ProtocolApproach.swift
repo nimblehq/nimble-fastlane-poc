@@ -2,7 +2,7 @@ import Fastlane
 
 // MARK: - NewSharedFastfile
 
-public protocol NewSharedFastfile: LaneFile {
+public protocol NewSharedFastfile {
 
     var firebase: Firebase! { get set }
 
