@@ -1,6 +1,6 @@
 import Fastlane
 
-public class SharedFastfile: LaneFile {
+public class SharedFastfile {
 
     public func getIsCILane() {
         puts(message: .userDefined("getIsCILane"))
