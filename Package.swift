@@ -17,17 +17,25 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/fastlane/fastlane", from: "2.214.0")
+        .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "firebase-distribution-plugin"),
+        .package(url: "https://github.com/apple/swift-log", branch: "main")
     ],
     targets: [
-        .target(
-            name: "ProjectDescription"
-        ),
         .executableTarget(
             name: "FastlaneRunner",
             dependencies: [
                 "ProjectDescription"
             ]
+        ),
+        .target(
+            name: "FastlaneRunnerCore",
+            dependencies: [
+                .product(name: "Fastlane", package: "fastlane-swift-group"),
+                .product(name: "Logging", package: "swift-log")
+            ]
+        ),
+        .target(
+            name: "ProjectDescription"
         ),
         .testTarget(
             name: "FastlaneRunnerTests",
