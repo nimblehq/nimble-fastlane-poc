@@ -4,25 +4,36 @@ import PackageDescription
 
 let package = Package(
     name: "NimbleFastlane",
+    platforms: [.macOS(.v12)],
     products: [
+        .executable(
+            name: "swift-fastlaneRunner",
+            targets: ["FastlaneRunner"]
+        ),
         .library(
-            name: "NimbleFastlane",
-            targets: ["NimbleFastlane"]
+            name: "ProjectDescription",
+            type: .dynamic,
+            targets: ["ProjectDescription"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/fastlane/fastlane", from: "2.212.0")
+        .package(url: "https://github.com/fastlane/fastlane", from: "2.214.0")
     ],
     targets: [
         .target(
-            name: "NimbleFastlane",
+            name: "ProjectDescription"
+        ),
+        .executableTarget(
+            name: "FastlaneRunner",
             dependencies: [
-                .product(name: "Fastlane", package: "fastlane")
+                "ProjectDescription"
             ]
         ),
         .testTarget(
-            name: "NimbleFastlaneTests",
-            dependencies: ["NimbleFastlane"]
+            name: "FastlaneRunnerTests",
+            dependencies: [
+                .target(name: "FastlaneRunner")
+            ]
         )
     ]
 )

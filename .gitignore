@@ -1,3 +1,6 @@
+# Mac
+.DS_Store
+
 *.gem
 *.rbc
 /.config
@@ -37,3 +40,11 @@
 
 # Swift Package
 .swiftpm
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc

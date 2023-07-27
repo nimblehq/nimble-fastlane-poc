@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fastlane/fastlane",
       "state" : {
-        "revision" : "13f4db247af1ffab04201ac37248fe4c28075812",
-        "version" : "2.212.1"
+        "revision" : "600555cfcdb2eb6423ce4050428bda4f7812534f",
+        "version" : "2.214.0"
       }
     },
     {
