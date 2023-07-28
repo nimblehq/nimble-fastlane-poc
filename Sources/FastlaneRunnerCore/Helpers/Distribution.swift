@@ -10,21 +10,22 @@ import Fastlane
 
 enum Distribution {
 
-    static func uploadToFirebase(
-        environment: Constant.Environment,
-        groups: String = Constant.firebaseTesterGroups,
-        releaseNotes: String
-    ) {
-        let ipaPath = makeIPAPath(environment: environment)
-        firebaseAppDistribution(
-            ipaPath: .userDefined(ipaPath),
-            app: .userDefined(environment.firebaseAppId),
-            groups: .userDefined(groups),
-            releaseNotes: .userDefined(releaseNotes),
-            firebaseCliToken: .userDefined(Secret.firebaseCLIToken),
-            debug: .userDefined(true)
-        )
-    }
+    // TODO: Add later
+//    static func uploadToFirebase(
+//        environment: Constant.Environment,
+//        groups: String = Constant.firebaseTesterGroups,
+//        releaseNotes: String
+//    ) {
+//        let ipaPath = makeIPAPath(environment: environment)
+//        firebaseAppDistribution(
+//            ipaPath: .userDefined(ipaPath),
+//            app: .userDefined(environment.firebaseAppId),
+//            groups: .userDefined(groups),
+//            releaseNotes: .userDefined(releaseNotes),
+//            firebaseCliToken: .userDefined(Secret.firebaseCLIToken),
+//            debug: .userDefined(true)
+//        )
+//    }
 
     static func uploadToAppStore(environment: Constant.Environment = .production) {
         let ipaPath = makeIPAPath(environment: environment)

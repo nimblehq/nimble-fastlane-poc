@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
-      "identity" : "fastlane-swift-group",
+      "identity" : "fastlane",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/blyscuit/fastlane-swift-group",
+      "location" : "https://github.com/thieurom/fastlane",
       "state" : {
-        "branch" : "firebase-distribution-plugin",
-        "revision" : "28c901d460f5c723c1ce5569a163c30fe1a494b5"
+        "branch" : "spm-executable",
+        "revision" : "5f1acaf085a93014c1a1ce16a5aaaeb1f858ce7f"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser",
+      "state" : {
+        "revision" : "fee6933f37fde9a5e12a1e4aeaa93fe60116ff2a",
+        "version" : "1.2.2"
       }
     },
     {

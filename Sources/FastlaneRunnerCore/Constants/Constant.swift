@@ -17,6 +17,7 @@ enum Constant {
 
     // MARK: - Firebase
 
+    // TODO: - Remove soon
     static let stagingFirebaseAppId = "<#stagingFirebaseAppId#>"
     static let productionFirebaseAppId = "<#productionFirebaseAppId#>"
     static let firebaseTesterGroups = "<#group1#>, <#group2#>"
@@ -66,15 +67,6 @@ enum Constant {
     // MARK: - Build and Version
 
     static let manualVersion: String = ""
-
-    // MARK: - Device
-
-    static let devices = ["iPhone 12 Pro Max"]
-
-    // MARK: - Test
-
-    static let testTarget: String = "\(projectName)Tests"
-    static let kifUITestTarget: String = "\(projectName)KIFUITests"
 }
 
 extension Constant {
@@ -100,6 +92,7 @@ extension Constant {
             }
         }
 
+        // TODO: - Remove soon
         var firebaseAppId: String {
             switch self {
             case .staging: return Constant.stagingFirebaseAppId

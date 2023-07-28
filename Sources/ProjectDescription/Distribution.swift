@@ -5,9 +5,9 @@
 //  Created by Doan Thieu on 27/07/2023.
 //
 
-public struct Distribution {
+public struct Distribution: Equatable {
 
-    public enum Method: String {
+    public enum Method: String, Equatable {
 
         case development
         case adHoc = "adhoc"
@@ -33,7 +33,7 @@ public struct Distribution {
         }
     }
 
-    public enum Destination {
+    public enum Destination: Equatable {
 
         case testFlight
         case firebase(appId: String)

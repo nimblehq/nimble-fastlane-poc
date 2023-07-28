@@ -33,3 +33,21 @@ public struct Target {
         .init(name: name, type: .test, builds: [])
     }
 }
+
+extension Target {
+
+    public func scheme(for build: Build) -> String? {
+        guard let _ = builds.first(where: { $0 == build }) else {
+            return nil
+        }
+
+        switch build.config {
+        case .development:
+            return "\(name) Development"
+        case .staging:
+            return "\(name) Staging"
+        case .production:
+            return name
+        }
+    }
+}

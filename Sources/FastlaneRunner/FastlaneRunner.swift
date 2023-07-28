@@ -1,14 +1,15 @@
+import ArgumentParser
 import ConfigurationLoader
 
 @main
-public struct FastlaneRunner {
+public struct FastlaneRunner: ParsableCommand {
 
-    public static func main() {
-        do {
-            let project = try ConfigurationLoader().loadProjectConfiguration()
-            print("Loaded configuration: \(project)")
-        } catch {
-            print("Failed to load configuration!")
-        }
+    public init() {}
+
+    public static var configuration: CommandConfiguration {
+        .init(
+            commandName: "fastlaneRunner",
+            subcommands: [TestCommand.self]
+        )
     }
 }

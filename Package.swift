@@ -7,7 +7,7 @@ let package = Package(
     platforms: [.macOS(.v12)],
     products: [
         .executable(
-            name: "swift-fastlaneRunner",
+            name: "fastlaneRunner",
             targets: ["FastlaneRunner"]
         ),
         .library(
@@ -17,22 +17,26 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "firebase-distribution-plugin"),
+        .package(url: "https://github.com/thieurom/fastlane", branch: "spm-executable"),
         .package(url: "https://github.com/apple/swift-log", branch: "main"),
-        .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.6")
+        .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.6"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.2.0")
     ],
     targets: [
         .executableTarget(
             name: "FastlaneRunner",
             dependencies: [
                 "ProjectDescription",
-                "ConfigurationLoader"
+                "ConfigurationLoader",
+                "FastlaneRunnerCore",
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                .product(name: "Logging", package: "swift-log")
             ]
         ),
         .target(
             name: "FastlaneRunnerCore",
             dependencies: [
-                .product(name: "Fastlane", package: "fastlane-swift-group"),
+                .product(name: "Fastlane", package: "fastlane"),
                 .product(name: "Logging", package: "swift-log")
             ]
         ),

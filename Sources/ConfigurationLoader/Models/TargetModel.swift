@@ -13,10 +13,10 @@ struct TargetModel: Decodable {
     let test: Bool
     let builds: [BuildModel]
 
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: String, CodingKey {
 
         case name
-        case isTest
+        case isTest = "test"
         case builds
     }
 

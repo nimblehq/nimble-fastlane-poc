@@ -7,4 +7,4 @@
 
 import Logging
 
-let logger = Logger(label: "co.nimblehq.fastlanerunner.core")
+let logger = Logger(label: "fastlanerunner.core")

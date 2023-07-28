@@ -8,15 +8,15 @@
 
 import Fastlane
 
-enum Test {
+public enum Test {
 
-    static func buildAndTest(
-        environment: Constant.Environment,
+    public static func buildAndTest(
+        scheme: String,
         targets: [String],
         devices: [String]
     ) {
         scan(
-            scheme: .userDefined(environment.scheme),
+            scheme: .userDefined(scheme),
             devices: .userDefined(devices),
             onlyTesting: targets,
             codeCoverage: .userDefined(true),
