@@ -7,7 +7,7 @@
 
 public struct Build {
 
-    public enum Config {
+    public enum Config: String {
 
         case development
         case staging

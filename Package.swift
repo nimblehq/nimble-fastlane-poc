@@ -18,13 +18,15 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/blyscuit/fastlane-swift-group", branch: "firebase-distribution-plugin"),
-        .package(url: "https://github.com/apple/swift-log", branch: "main")
+        .package(url: "https://github.com/apple/swift-log", branch: "main"),
+        .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.6")
     ],
     targets: [
         .executableTarget(
             name: "FastlaneRunner",
             dependencies: [
-                "ProjectDescription"
+                "ProjectDescription",
+                "ConfigurationLoader"
             ]
         ),
         .target(
@@ -35,8 +37,13 @@ let package = Package(
             ]
         ),
         .target(
-            name: "ProjectDescription"
+            name: "ConfigurationLoader",
+            dependencies: [
+                "ProjectDescription",
+                .product(name: "Yams", package: "Yams")
+            ]
         ),
+        .target(name: "ProjectDescription"),
         .testTarget(
             name: "FastlaneRunnerTests",
             dependencies: [

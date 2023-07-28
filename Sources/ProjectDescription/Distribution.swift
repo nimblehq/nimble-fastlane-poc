@@ -9,12 +9,19 @@ public struct Distribution {
 
     public enum Method: String {
 
-        case development = "Development"
-        case adHoc = "AdHoc"
-        case appStore = "AppStore"
-        case enterprise = "InHouse"
+        case development
+        case adHoc = "adhoc"
+        case appStore = "appstore"
+        case enterprise
 
-        public var value: String { rawValue }
+        public var value: String {
+            switch self {
+            case .development: return "Development"
+            case .adHoc: return "AdHoc"
+            case .appStore: return "AppStore"
+            case .enterprise: return "InHouse"
+            }
+        }
 
         public var signing: String {
             switch self {
